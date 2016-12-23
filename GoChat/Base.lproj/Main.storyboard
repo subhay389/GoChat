@@ -1,26 +1,110 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PAF-6e-LxN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Login View Controller-->
+        <scene sceneID="he1-Q0-vlg">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PAF-6e-LxN" customClass="LoginViewController" customModule="GoChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="6nB-zU-pBJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="QYo-6h-8yo"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="GCW-UG-cMP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="O2m-jZ-pTm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sv-cN-WcJ">
+                                <rect key="frame" x="167" y="419" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="2LJ-xT-ttK"/>
+                                    <constraint firstAttribute="height" constant="40" id="POl-pt-W2m"/>
+                                </constraints>
+                                <state key="normal" image="googleButton.png"/>
+                                <connections>
+                                    <action selector="GoogleLoginDidTap:" destination="PAF-6e-LxN" eventType="touchUpInside" id="odc-vO-o78"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrLine.png" translatesAutoresizingMaskIntoConstraints="NO" id="G17-aZ-zK3">
+                                <rect key="frame" x="44" y="313" width="287" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Vmy-di-1jT"/>
+                                    <constraint firstAttribute="width" constant="287" id="Zci-kE-jDE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxO-np-hX0">
+                                <rect key="frame" x="44" y="211" width="287" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="287" id="2lN-2k-yCY"/>
+                                    <constraint firstAttribute="height" constant="40" id="7Kq-t6-gHd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Anonymous Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AnonymousLoginDidTap:" destination="PAF-6e-LxN" eventType="touchUpInside" id="e5f-mY-GUv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Sv-cN-WcJ" firstAttribute="top" secondItem="G17-aZ-zK3" secondAttribute="bottom" constant="66" id="3gz-gX-nbJ"/>
+                            <constraint firstItem="O2m-jZ-pTm" firstAttribute="top" secondItem="GCW-UG-cMP" secondAttribute="top" id="Cqo-Jw-oq0"/>
+                            <constraint firstItem="8Sv-cN-WcJ" firstAttribute="centerX" secondItem="GCW-UG-cMP" secondAttribute="centerX" id="Da3-3n-264"/>
+                            <constraint firstItem="fxO-np-hX0" firstAttribute="leading" secondItem="G17-aZ-zK3" secondAttribute="leading" id="EEi-LC-1aQ"/>
+                            <constraint firstItem="fxO-np-hX0" firstAttribute="top" secondItem="6nB-zU-pBJ" secondAttribute="bottom" constant="191" id="IpM-bc-v1U"/>
+                            <constraint firstItem="QYo-6h-8yo" firstAttribute="top" secondItem="O2m-jZ-pTm" secondAttribute="bottom" id="O87-wJ-DeI"/>
+                            <constraint firstItem="QYo-6h-8yo" firstAttribute="top" secondItem="8Sv-cN-WcJ" secondAttribute="bottom" constant="208" id="bHg-Ie-0KK"/>
+                            <constraint firstItem="G17-aZ-zK3" firstAttribute="centerX" secondItem="GCW-UG-cMP" secondAttribute="centerX" id="btU-0K-l45"/>
+                            <constraint firstItem="G17-aZ-zK3" firstAttribute="top" secondItem="fxO-np-hX0" secondAttribute="bottom" constant="62" id="dj9-X2-XSH"/>
+                            <constraint firstAttribute="trailing" secondItem="O2m-jZ-pTm" secondAttribute="trailing" id="ona-8P-8KG"/>
+                            <constraint firstItem="fxO-np-hX0" firstAttribute="trailing" secondItem="G17-aZ-zK3" secondAttribute="trailing" id="sxA-gR-vRw"/>
+                            <constraint firstItem="fxO-np-hX0" firstAttribute="centerX" secondItem="GCW-UG-cMP" secondAttribute="centerX" id="t67-8G-5fg"/>
+                            <constraint firstItem="O2m-jZ-pTm" firstAttribute="leading" secondItem="GCW-UG-cMP" secondAttribute="leading" id="vfv-cm-VHC"/>
+                            <constraint firstItem="8Sv-cN-WcJ" firstAttribute="top" secondItem="G17-aZ-zK3" secondAttribute="bottom" constant="66" id="vva-mN-9VE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="AnonymousLoginButton" destination="fxO-np-hX0" id="DTR-Hg-Hft"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJN-3s-vnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101.59999999999999" y="139.880059970015"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="kzf-Ju-oDn">
+            <objects>
+                <viewController id="Yvr-sP-gAb" customClass="ChatViewController" customModule="GoChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rap-vs-v71"/>
+                        <viewControllerLayoutGuide type="bottom" id="HPh-zR-l2y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J1N-VY-5Ih">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWn-Tw-LKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="838" y="140"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="OrLine.png" width="864" height="45"/>
+        <image name="backgroundPhoto.png" width="1125" height="2001"/>
+        <image name="googleButton.png" width="120" height="120"/>
+    </resources>
 </document>
