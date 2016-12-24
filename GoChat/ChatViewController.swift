@@ -21,6 +21,21 @@ class ChatViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logoutDidTapped(_ sender: Any) {
+        
+        //switch the view from login to chat
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        //instantiate a navigation controller
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginVC") as! LoginViewController
+        
+        //get the app delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //set the navigation controller as root controller
+        appDelegate.window?.rootViewController = loginVC
+
+    }
 
     /*
     // MARK: - Navigation

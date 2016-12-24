@@ -30,6 +30,22 @@ class LoginViewController: UIViewController {
     
     @IBAction func AnonymousLoginDidTap(_ sender: Any) {
         print("Anonymous button tapped")
+
+        
+        //switch the view from login to chat
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        //instantiate a navigation controller
+        let naviVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
+        
+        //get the app delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //set the navigation controller as root controller
+        appDelegate.window?.rootViewController = naviVC
+        
+        
+        
     }
 
     @IBAction func GoogleLoginDidTap(_ sender: Any) {
