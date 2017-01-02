@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class LoginViewController: UIViewController {
+
+class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
     @IBOutlet weak var AnonymousLoginButton: UIButton!
     
@@ -21,6 +23,10 @@ class LoginViewController: UIViewController {
         AnonymousLoginButton.layer.borderWidth = 2.0
         AnonymousLoginButton.layer.borderColor = UIColor.white.cgColor
         
+        GIDSignIn.sharedInstance().clientID = "991341783726-lk914hd2el3raq6eejuflvp35q080hrt.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,26 +36,24 @@ class LoginViewController: UIViewController {
     
     @IBAction func AnonymousLoginDidTap(_ sender: Any) {
         print("Anonymous button tapped")
-
-        
-        //switch the view from login to chat
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //instantiate a navigation controller
-        let naviVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
-        
-        //get the app delegate
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        //set the navigation controller as root controller
-        appDelegate.window?.rootViewController = naviVC
-        
-        
+        Helper.helper.anonymousLogin()
         
     }
 
     @IBAction func GoogleLoginDidTap(_ sender: Any) {
         print("Google login button tapped")
+        GIDSignIn.sharedInstance().signIn()
+        
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error != nil{
+            print(error.localizedDescription)
+            return
+        }
+        print(user.authentication)
+        Helper.helper.logInWithGoogle(authentication: user.authentication)
     }
     /*
     // MARK: - Navigation
